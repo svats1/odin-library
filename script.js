@@ -13,20 +13,19 @@ Book.prototype.info = function() {
 
 function addBookToLibrary(...args) {
     const book = new Book(...args)
-    myLibrary.push(book)
-    console.log(book.__proto__)
-    
+    myLibrary.push(book)    
     console.log("This book is added: " + book.info())
 }
 
 addBookToLibrary('Roots', 'Alex Haley', '500', 'Yes')
 addBookToLibrary('Sapiens', 'Yuval Noah Harari', '300', 'No')
-addBookToLibrary('The Road Less Travelled', 'M. Scott Peck', '200', 'Yes')
+addBookToLibrary('The Road Less Traveled', 'M. Scott Peck', '200', 'Yes')
 
+const books = document.querySelector('.books')
 
-console.log(myLibrary)
-console.log(Book.prototype)
-
-// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295', 'not read yet')
-
-// console.log(theHobbit.info())
+for (i in myLibrary) {
+    const book = document.createElement('div')
+    book.className = 'book'
+    book.textContent = myLibrary[i].title
+    books.appendChild(book)
+}
