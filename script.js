@@ -1,15 +1,21 @@
 let myLibrary = []
+const books = document.querySelector('.books')
+const addNew = document.querySelector('#addnewbook')
+const closeBtn = document.querySelector('#close')
+const modal = document.querySelector('.modal')
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, Read? : ${this.read}`
+    }
 }
 
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, Read? : ${this.read}`
-}
 
 function addBookToLibrary(...args) {
     const book = new Book(...args)
@@ -21,7 +27,15 @@ addBookToLibrary('Roots', 'Alex Haley', '500', 'Yes')
 addBookToLibrary('Sapiens', 'Yuval Noah Harari', '300', 'No')
 addBookToLibrary('The Road Less Traveled', 'M. Scott Peck', '200', 'Yes')
 
-const books = document.querySelector('.books')
+
+addNew.addEventListener('click', () => {
+    modal.style.display = 'block'
+})
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none'
+})
+
 
 for (i in myLibrary) {
     const book = document.createElement('div')
