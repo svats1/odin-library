@@ -2,12 +2,13 @@ body {
     background-color: grey;
 }
 .books {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
     gap: 10px;
 }
 .book {
     height: 10vh;
-    width: 10vw;
+    /* width: 10vw; */
     padding: 20px;
     background-color: aliceblue;
 }

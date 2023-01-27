@@ -19,10 +19,28 @@ class Book {
 function addBookToLibrary(...args) {
     const book = new Book(...args)
     myLibrary.push(book)    
+    
     console.log("This book is added: " + book.info())
+    
     const newBook = document.createElement('div')
+    const newTitle = document.createElement('div')
+    const newAuth = document.createElement('div')
+    const newPages = document.createElement('div')
+    const newRead = document.createElement('div')
+    
     newBook.className = 'book'
-    newBook.textContent = book.title
+    
+    newTitle.textContent = `Title : ${book.title}`
+    newAuth.textContent = `Author : ${book.author}`
+    newPages.textContent = `Pages : ${book.pages}`
+    newRead.textContent = `Read? : ${book.read}`
+
+    newBook.appendChild(newTitle)
+    newBook.appendChild(newAuth)
+    newBook.appendChild(newPages)
+    newBook.appendChild(newRead)
+    
+    // newBook.textContent = book.title
     books.appendChild(newBook)
 }
 
@@ -42,6 +60,7 @@ closeBtn.addEventListener('click', (e) => {
     const read = document.querySelector('#read')
     
     addBookToLibrary(title.value, author.value, pages.value, read.value)
+    title.value = author.value = pages.value = read.value = ''
     e.preventDefault()
   
 })
