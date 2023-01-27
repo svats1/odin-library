@@ -28,3 +28,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.new-book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
