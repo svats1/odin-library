@@ -30,7 +30,9 @@ body {
     align-items: center;
 }
 
-.new-book {
+.bookform {
+    background-color: azure;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
