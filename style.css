@@ -3,12 +3,11 @@ body {
 }
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20%, 0.5fr));
     gap: 10px;
 }
 .book {
     height: 10vh;
-    /* width: 10vw; */
     padding: 20px;
     background-color: aliceblue;
 }

@@ -13,9 +13,6 @@ class Book {
         this.pages = pages
         this.read = read
     }
-    info() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, Read? : ${this.read}`
-    }
 }
 
 function addBookToLibrary(...args) {
