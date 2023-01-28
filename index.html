@@ -21,8 +21,8 @@
                 <input type="text" id="author" name="author" required minlength="1"/>
                 <label for="pages">Pages</label>
                 <input type="text" id="pages" name="pages" required minlength="1"/>
-                <label for="read">Read?</label>
-                <input type="text" id="read" name="read" required minlength="1"/>
+                <label for="read">Read? (y/n)</label>
+                <input type="text" id="read" name="read" pattern="[Yy]|[Nn]" required minlength="1"/>
                 <br>
                 <button type="submit" id="submit">submit</button>
             </form>
