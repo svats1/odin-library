@@ -3,6 +3,7 @@ const books = document.querySelector('.books')
 const addNew = document.querySelector('#addnewbook')
 const submit = document.querySelector('#submit')
 const modal = document.querySelector('.modal')
+const closeModal = document.querySelector('#close-modal')
 const form = document.querySelector('.bookform')
 
 // Create book class
@@ -69,6 +70,8 @@ function addBookToLibrary(...args) {
         }
     })
 
+    newRead.style.paddingBottom = "5px"
+
     // Append book divs to book container
     newBook.appendChild(newTitle)
     newBook.appendChild(newAuth)
@@ -77,7 +80,8 @@ function addBookToLibrary(...args) {
     newBook.appendChild(delBook)
     newBook.appendChild(changeRead)
     
-    console.log(newBook)
+    newBook.style.fontSize = "18px"
+    newBook.style.padding = "20px"
 
     // Append book container to books container
     books.appendChild(newBook)
@@ -110,4 +114,9 @@ submit.addEventListener('click', (e) => {
         // Clear fields for next submission
         title.value = author.value = pages.value = read.value = ''    
     }
+})
+
+closeModal.addEventListener('click', () => {
+    // Made form modal appear
+    modal.style.display = 'none'
 })

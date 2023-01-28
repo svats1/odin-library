@@ -1,9 +1,14 @@
 body {
     background-color: grey;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header {
+    font-size: 48px;
+    font-weight: 600;
 }
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 0.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(20%, 0.25fr));
     gap: 10px;
 }
 .book {
@@ -36,4 +41,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+}
+
+#addnewbook {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+}
+
+#addnewbook:hover {
+    background-color: rgb(225, 209, 191);
 }
