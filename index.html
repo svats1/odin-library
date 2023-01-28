@@ -16,11 +16,11 @@
         <div class="modal-content">
             <form action="#" class="bookform" method="get">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" required minlength="1"/>
+                <input type="text" id="title" name="title" autofocus required minlength="1"/>
                 <label for="author">Author</label>
                 <input type="text" id="author" name="author" required minlength="1"/>
                 <label for="pages">Pages</label>
-                <input type="text" id="pages" name="pages" required minlength="1"/>
+                <input type="text" id="pages" name="pages" pattern="^[0-9]*$" required minlength="1" title="Numbers only"/>
                 <label for="read">Read? (y/n)</label>
                 <input type="text" id="read" name="read" pattern="[Yy]|[Nn]" required minlength="1"/>
                 <br>
