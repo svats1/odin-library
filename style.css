@@ -36,20 +36,64 @@ header {
 
 .bookform {
     background-color: azure;
-    padding: 20px;
+    padding: 0px 50px 20px 50px;
+    font-size: 18px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
+}
+
+.bookform input {
+    height: 28px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px grey solid;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.bookform label {
+    height: 25px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.bookform #submit {
+    height: auto;
+    padding: 10px;
+    align-self: stretch;
+    font-size: 18px;
+    background-color: rgb(76, 149, 76);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bookform #submit:hover {
+    background-color: rgb(67, 133, 67);
+}
+
+.bookform #close-modal {
+    height: auto;
+    padding: 10px;
+    align-self: stretch;
+    background-color: rgb(169, 65, 65);
+    border-radius: 10px;
+}
+
+.bookform #close-modal:hover {
+    background-color: rgb(147, 58, 58);
 }
 
 #addnewbook {
-    background-color: antiquewhite;
+    background-color: azure;
     border-radius: 10px;
     font-size: 16px;
     padding: 10px 20px 10px 20px;
+    margin-bottom: 10px;
 }
 
 #addnewbook:hover {
-    background-color: rgb(225, 209, 191);
+    background-color: rgb(216, 238, 238);
 }

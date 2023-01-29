@@ -5,6 +5,11 @@ const submit = document.querySelector('#submit')
 const modal = document.querySelector('.modal')
 const closeModal = document.querySelector('#close-modal')
 const form = document.querySelector('.bookform')
+const totalBooks = document.querySelector('.total-books')
+const readBooks = document.querySelector('.read-books')
+const unreadBooks = document.querySelector('.unread-books')
+
+
 
 // Create book class
 class Book {
@@ -16,12 +21,33 @@ class Book {
     }
 }
 
+function updateBooks() {
+    let readCount = 0
+    let unreadCount = 0
+
+    totalBooks.textContent = `Total : ${myLibrary.length}`
+    readBooks.textContent = `Read : ${readCount}`
+    unreadBooks.textContent = `Unread : ${unreadCount}`
+
+    for (i in myLibrary) {
+        if (myLibrary[i].read == 'y') {
+            readCount++
+            readBooks.textContent = `Read : ${readCount}`
+        } else {
+            unreadCount++
+            unreadBooks.textContent = `Unread : ${unreadCount}`
+        }
+    }
+}
+
 function addBookToLibrary(...args) {
     // Create new book object with input data as arguments
     const book = new Book(...args)
     
     // Add book to lib
-    myLibrary.push(book)    
+    myLibrary.push(book)
+    // totalBooks.textContent = `Total : ${myLibrary.length}`
+    updateBooks()    
         
     // Create divs for book container and book fields
     const newBook = document.createElement('div')
@@ -45,18 +71,20 @@ function addBookToLibrary(...args) {
     newPages.textContent = `Pages : ${book.pages}`
 
     newRead.className = 'new-read'
-    newRead.textContent = `Read? : ${book.read}`
+    newRead.textContent = `Read? : ${book.read.toLowerCase()}`
     
     delBook.textContent = 'Delete book'
     changeRead.textContent = 'Change Read Status'
 
     // Arm Delete button 
     delBook.addEventListener('click', () => {
-        console.log(`Deleted ${book.title} from Lib`)        
         // Remove book from myLibrary array
         myLibrary.splice(myLibrary.indexOf(book), 1)
+        updateBooks()
+        // totalBooks.textContent = `Total : ${myLibrary.length}`
         // Remove book from view
         books.removeChild(newBook)
+        
     })
 
     // Arm Change Read Status button
@@ -68,9 +96,8 @@ function addBookToLibrary(...args) {
             book.read = 'y'
             newRead.textContent = `Read? : ${book.read}`
         }
+        updateBooks()
     })
-
-    newRead.style.paddingBottom = "5px"
 
     // Append book divs to book container
     newBook.appendChild(newTitle)
@@ -79,9 +106,13 @@ function addBookToLibrary(...args) {
     newBook.appendChild(newRead)
     newBook.appendChild(delBook)
     newBook.appendChild(changeRead)
-    
+
+    // Style new book entry
+    newRead.style.paddingBottom = "5px"    
     newBook.style.fontSize = "18px"
     newBook.style.padding = "20px"
+    newBook.style.borderRadius = "10px"
+    newBook.style.backgroundColor = "azure"
 
     // Append book container to books container
     books.appendChild(newBook)
@@ -120,3 +151,10 @@ closeModal.addEventListener('click', () => {
     // Made form modal appear
     modal.style.display = 'none'
 })
+
+updateBooks()
+// totalBooks.textContent = `Total : ${myLibrary.length}`
+
+addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
+addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
+addBookToLibrary('Roots', 'Alex Haley', '500', 'y')

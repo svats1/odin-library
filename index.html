@@ -10,12 +10,20 @@
 </head>
 <body>
     <header>My Library</header>
+    <div class="tally">
+        <div class="total-books"></div>
+        <div class="read-books"></div>
+        <div class="unread-books"></div>
+    </div>
+    <br>
+    <button type="submit" id="addnewbook">New Book</button>
     <br>
     <div class="books">
     </div>
     <div class="modal">
         <div class="modal-content">
             <form action="#" class="bookform" method="get">
+                <h3>Add New Book!</h3>
                 <label for="title">Title</label>
                 <input type="text" id="title" name="title" autofocus required minlength="1"/>
                 <label for="author">Author</label>
@@ -30,7 +38,5 @@
             </form>
         </div>
     </div>
-    <br>
-    <button type="submit" id="addnewbook">New Book</button>
 </body>
 </html>
