@@ -9,8 +9,6 @@ const totalBooks = document.querySelector('.total-books')
 const readBooks = document.querySelector('.read-books')
 const unreadBooks = document.querySelector('.unread-books')
 
-
-
 // Create book class
 class Book {
     constructor(title, author, pages, read) {
@@ -46,7 +44,7 @@ function addBookToLibrary(...args) {
     
     // Add book to lib
     myLibrary.push(book)
-    // totalBooks.textContent = `Total : ${myLibrary.length}`
+    // Update tally after addition
     updateBooks()    
         
     // Create divs for book container and book fields
@@ -58,12 +56,12 @@ function addBookToLibrary(...args) {
     const delBook = document.createElement('button')
     const changeRead = document.createElement('button')
     
-    // Set attibutes for book
+    // Set attibutes for all book fields
     newBook.className = 'book'
     
     newTitle.className = 'new-title'
     newTitle.textContent = `Title : ${book.title}`
-
+    
     newAuth.className = 'new-auth'
     newAuth.textContent = `Author : ${book.author}`
 
@@ -83,11 +81,11 @@ function addBookToLibrary(...args) {
     delBook.addEventListener('click', () => {
         // Remove book from myLibrary array
         myLibrary.splice(myLibrary.indexOf(book), 1)
+        // Update tally after deletion
         updateBooks()
-        // totalBooks.textContent = `Total : ${myLibrary.length}`
-        // Remove book from view
-        books.removeChild(newBook)
         
+        // Remove book from view
+        books.removeChild(newBook)    
     })
 
     // Arm Change Read Status button
@@ -99,10 +97,11 @@ function addBookToLibrary(...args) {
             book.read = 'y'
             newRead.textContent = `Read? : ${book.read}`
         }
+        // Update tally after read status change
         updateBooks()
     })
 
-    // Append book divs to book container
+    // Append book fields to book container
     newBook.appendChild(newTitle)
     newBook.appendChild(newAuth)
     newBook.appendChild(newPages)
@@ -110,24 +109,28 @@ function addBookToLibrary(...args) {
     newBook.appendChild(delBook)
     newBook.appendChild(changeRead)
 
-    // Style new book entry
+    // Style book container
     newRead.style.paddingBottom = "5px"    
     newBook.style.fontSize = "18px"
     newBook.style.padding = "20px"
     newBook.style.borderRadius = "10px"
     newBook.style.backgroundColor = "azure"
 
-    // Append book container to books container
+    // Append book container to books
     books.appendChild(newBook)
 }
 
-// Button to add new book
+// Update tally on page load
+updateBooks()
+
+
+// Show modal for new book
 addNew.addEventListener('click', () => {
     // Made form modal appear
     modal.style.display = 'block'
 })
 
-// Button to submit new book data
+// Submit modal form data
 submit.addEventListener('click', (e) => {
     // Check form validation
     if (form.checkValidity() === true) {
@@ -136,28 +139,27 @@ submit.addEventListener('click', (e) => {
         // Make form modal disappear
         modal.style.display = 'none'
         
-        // Grab form nodes receiving input data
+        // Grab nodes receiving input data
         const title = document.querySelector('#title')
         const author = document.querySelector('#author')
         const pages = document.querySelector('#pages')
         const read = document.querySelector('#read')
         
-        // Call addBookToLibrary function with form node values as parameters
+        // Call addBookToLibrary with node values as args
         addBookToLibrary(title.value, author.value, pages.value, read.value)
         
-        // Clear fields for next submission
+        // Clear nodes for next submission
         title.value = author.value = pages.value = read.value = ''    
     }
 })
 
+// Close modal
 closeModal.addEventListener('click', () => {
     // Made form modal appear
     modal.style.display = 'none'
 })
 
-updateBooks()
-// totalBooks.textContent = `Total : ${myLibrary.length}`
-
+// Sample books:
 // addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
 // addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
 // addBookToLibrary('Roots', 'Alex Haley', '500', 'y')
