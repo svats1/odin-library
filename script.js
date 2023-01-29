@@ -58,7 +58,7 @@ function addBookToLibrary(...args) {
     const delBook = document.createElement('button')
     const changeRead = document.createElement('button')
     
-    // Set class on book container
+    // Set attibutes for book
     newBook.className = 'book'
     
     newTitle.className = 'new-title'
@@ -72,9 +72,12 @@ function addBookToLibrary(...args) {
 
     newRead.className = 'new-read'
     newRead.textContent = `Read? : ${book.read.toLowerCase()}`
-    
+     
     delBook.textContent = 'Delete book'
+    delBook.style.borderRadius = '5px'
+    
     changeRead.textContent = 'Change Read Status'
+    changeRead.style.borderRadius = '5px'
 
     // Arm Delete button 
     delBook.addEventListener('click', () => {
@@ -155,6 +158,6 @@ closeModal.addEventListener('click', () => {
 updateBooks()
 // totalBooks.textContent = `Total : ${myLibrary.length}`
 
-addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
-addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
-addBookToLibrary('Roots', 'Alex Haley', '500', 'y')
+// addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
+// addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
+// addBookToLibrary('Roots', 'Alex Haley', '500', 'y')

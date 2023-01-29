@@ -6,6 +6,12 @@ header {
     font-size: 48px;
     font-weight: 600;
 }
+
+.tally {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
 .books {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20%, 0.25fr));
