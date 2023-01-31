@@ -1,17 +1,43 @@
 body {
-    background-color: grey;
+    background-color: rgb(79, 54, 54);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 header {
     font-size: 48px;
     font-weight: 600;
+    text-align: center;
+    color: aliceblue;
 }
 
 .tally {
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    color: aliceblue;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+#addnewbook {
+    background-color: rgb(134, 168, 159);
+    border-radius: 10px;
+    font-size: 16px;
+    color: aliceblue;
+    border: 1px solid whitesmoke;
+    padding: 10px 30px 10px 30px;
+    margin-bottom: 10px;
+}
+
+#addnewbook:hover {
+    background-color: rgb(115, 146, 138);
+}
+
 .books {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20%, 0.25fr));
@@ -41,10 +67,11 @@ header {
 }
 
 .bookform {
-    background-color: azure;
+    background-color: rgb(204, 224, 224);
     padding: 0px 50px 20px 50px;
     font-size: 18px;
     width: 250px;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,12 +79,13 @@ header {
 }
 
 .bookform input {
-    height: 28px;
+    height: 32px;
     width: 250px;
     border-radius: 5px;
     border: 1px grey solid;
     font-size: 18px;
     margin-bottom: 10px;
+    background-color: aliceblue;
 }
 
 .bookform label {
@@ -90,16 +118,4 @@ header {
 
 .bookform #close-modal:hover {
     background-color: rgb(147, 58, 58);
-}
-
-#addnewbook {
-    background-color: azure;
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 10px 20px 10px 20px;
-    margin-bottom: 10px;
-}
-
-#addnewbook:hover {
-    background-color: rgb(216, 238, 238);
 }
