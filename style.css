@@ -40,11 +40,11 @@ header {
 
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 0.25fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 0.25fr));
     gap: 10px;
 }
 .book {
-    height: 10vh;
+    height: auto;
     padding: 20px;
     background-color: aliceblue;
 }
@@ -118,4 +118,16 @@ header {
 
 .bookform #close-modal:hover {
     background-color: rgb(147, 58, 58);
+}
+
+.book-buttons {
+    background-color: rgb(189, 226, 209);
+    font-size: 16px;
+    height: 24px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.book-buttons:hover {
+    background-color: rgb(159, 193, 177);
 }

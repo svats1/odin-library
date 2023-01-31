@@ -71,11 +71,9 @@ function addBookToLibrary(...args) {
     newRead.className = 'new-read'
     newRead.textContent = `Read? : ${book.read.toLowerCase()}`
      
-    delBook.textContent = 'Delete book'
-    delBook.style.borderRadius = '5px'
-    
+    delBook.textContent = 'Delete Book'
     changeRead.textContent = 'Change Read Status'
-    changeRead.style.borderRadius = '5px'
+    delBook.className = changeRead.className = 'book-buttons'
 
     // Arm Delete button 
     delBook.addEventListener('click', () => {
@@ -106,8 +104,9 @@ function addBookToLibrary(...args) {
     newBook.appendChild(newAuth)
     newBook.appendChild(newPages)
     newBook.appendChild(newRead)
-    newBook.appendChild(delBook)
     newBook.appendChild(changeRead)
+    newBook.appendChild(delBook)
+
 
     // Style book container
     newRead.style.paddingBottom = "5px"    
@@ -160,6 +159,6 @@ closeModal.addEventListener('click', () => {
 })
 
 // Sample books:
-// addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
-// addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
-// addBookToLibrary('Roots', 'Alex Haley', '500', 'y')
+addBookToLibrary('Cosmos', 'Carl Sagan', '300', 'n')
+addBookToLibrary('Deep Work', 'Cal Newport', '250', 'y')
+addBookToLibrary('Roots', 'Alex Haley', '500', 'y')
